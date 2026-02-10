@@ -155,15 +155,8 @@ const fetchNotes = async (params)=>{
     }
 };
 const createNote = async (note)=>{
-    try {
-        const { data } = await api.post('/notes', note);
-        return data;
-    } catch (error) {
-        if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
-            console.log(error.response?.data);
-        }
-        throw error;
-    }
+    const { data } = await api.post('/notes', note);
+    return data;
 };
 const deleteNote = async (id)=>{
     const { data } = await api.delete(`/notes/${id}`);

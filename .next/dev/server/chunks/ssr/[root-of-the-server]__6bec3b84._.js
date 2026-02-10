@@ -147,15 +147,8 @@ const fetchNotes = async (params)=>{
     }
 };
 const createNote = async (note)=>{
-    try {
-        const { data } = await api.post('/notes', note);
-        return data;
-    } catch (error) {
-        if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
-            console.log(error.response?.data);
-        }
-        throw error;
-    }
+    const { data } = await api.post('/notes', note);
+    return data;
 };
 const deleteNote = async (id)=>{
     const { data } = await api.delete(`/notes/${id}`);
@@ -207,7 +200,7 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
 
 __turbopack_context__.s([
     "default",
-    ()=>__TURBOPACK__default__export__
+    ()=>NoteDetails
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/projects/react-0.2/06-notehub-nextjs/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/projects/react-0.2/06-notehub-nextjs/node_modules/@tanstack/query-core/build/modern/queryClient.js [app-rsc] (ecmascript)");
@@ -219,8 +212,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react
 ;
 ;
 ;
-const NoteDetails = async ({ params })=>{
-    const { id } = params;
+async function NoteDetails({ params }) {
+    const { id } = await params;
     const queryClient = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$queryClient$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["QueryClient"]();
     await queryClient.prefetchQuery({
         queryKey: [
@@ -233,16 +226,15 @@ const NoteDetails = async ({ params })=>{
         state: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f40$tanstack$2f$query$2d$core$2f$build$2f$modern$2f$hydration$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["dehydrate"])(queryClient),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$projects$2f$react$2d$0$2e$2$2f$06$2d$notehub$2d$nextjs$2f$app$2f$notes$2f5b$id$5d2f$NoteDetails$2e$client$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/Desktop/projects/react-0.2/06-notehub-nextjs/app/notes/[id]/page.tsx",
-            lineNumber: 20,
+            lineNumber: 21,
             columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0))
+        }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/projects/react-0.2/06-notehub-nextjs/app/notes/[id]/page.tsx",
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 5
-    }, ("TURBOPACK compile-time value", void 0));
-};
-const __TURBOPACK__default__export__ = NoteDetails;
+    }, this);
+}
 }),
 "[project]/Desktop/projects/react-0.2/06-notehub-nextjs/app/notes/[id]/page.tsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
 
