@@ -3,3 +3,6 @@
 [00:00:11.195] Server  ERROR   (node:4231) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 [00:03:43.203] Server  LOG     ✓ Compiled in 3ms
+[00:16:36.647] Server  LOG     ✓ Compiled in 264ms
+[00:16:49.234] Server  LOG     ✓ Compiled in 169ms
+[00:17:37.717] Server  LOG     ✓ Compiled in 142ms
