@@ -1,37 +1,60 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'next/navigation';
-import { fetchNoteById } from '@/lib/api';
+import css from './NotesPage.module.css';
+import { useState } from 'react';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useDebouncedCallback } from 'use-debounce';
 
-const NotesClient = () => {
-  const { id } = useParams<{ id: string }>();
+import SearchBox from '@/components/SearchBox/SearchBox';
+import Pagination from '@/components/Pagination/Pagination';
+import NoteList from '@/components/NoteList/NoteList';
+import NoteForm from '@/components/NoteForm/NoteForm';
+import Modal from '@/components/Modal/Modal';
 
-  const {
-    data: note,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ['note', id],
-    queryFn: () => fetchNoteById(id),
+import { fetchNotes } from '@/lib/api';
+
+export default function NotesClient() {
+  const [search, setSearch] = useState('');
+  const [page, setPage] = useState(1);
+  const [modal, setModal] = useState(false);
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['notes', search, page],
+    queryFn: () => fetchNotes({ search, page }),
+    placeholderData: keepPreviousData,
     refetchOnMount: false,
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  const notes = data?.notes ?? [];
 
-  if (error || !note) return <p>Some error..</p>;
-
-  const formattedDate = note.updatedAt
-    ? `Updated at: ${note.updatedAt}`
-    : `Created at: ${note.createdAt}`;
+  const onChange = useDebouncedCallback((value: string) => {
+    setSearch(value);
+    setPage(1);
+  }, 300);
 
   return (
-    <div>
-      <h2>{note.title}</h2>
-      <p>{note.content}</p>
-      <p>{formattedDate}</p>
+    <div className={css.app}>
+      <header className={css.toolbar}>
+        <SearchBox value={search} onChange={onChange} />
+
+        {data && data.totalPages > 1 && (
+          <Pagination page={page} totalPages={data.totalPages} onPageChange={setPage} />
+        )}
+
+        <button onClick={() => setModal(true)} className={css.button}>
+          Create note +
+        </button>
+      </header>
+
+      {isLoading && <p>Loading, please wait...</p>}
+      {isError && <p>Something went wrong.</p>}
+      {!isLoading && !isError && notes.length > 0 && <NoteList notes={notes} />}
+
+      {modal && (
+        <Modal onClose={() => setModal(false)}>
+          <NoteForm onClose={() => setModal(false)} />
+        </Modal>
+      )}
     </div>
   );
-};
-
-export default NotesClient;
+}
