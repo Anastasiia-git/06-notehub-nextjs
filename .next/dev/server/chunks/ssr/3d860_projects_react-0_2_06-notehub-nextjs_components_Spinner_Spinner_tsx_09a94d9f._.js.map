@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/anastasiia/Desktop/projects/react-0.2/06-notehub-nextjs/components/Spinner/Spinner.tsx"],"sourcesContent":["'use client';\n\n// import { ClipLoader } from 'react-spinners';\n\n// export default function Spinner() {\n//   return (\n//     <div\n//       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}\n//     >\n//       <ClipLoader size={50} />\n//     </div>\n//   );\n// }\n\nimport { BeatLoader } from 'react-spinners';\n\nexport default function Spinner() {\n  return (\n    <div\n      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}\n    >\n      <ClipLoader size={50} />\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;AAgBe,SAAS;IACtB,qBACE,mTAAC;QACC,OAAO;YAAE,SAAS;YAAQ,gBAAgB;YAAU,YAAY;YAAU,QAAQ;QAAQ;kBAE1F,cAAA,mTAAC;YAAW,MAAM;;;;;;;;;;;AAGxB"}}]
+}
