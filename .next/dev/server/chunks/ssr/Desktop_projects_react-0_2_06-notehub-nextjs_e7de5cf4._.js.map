@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/anastasiia/Desktop/projects/react-0.2/06-notehub-nextjs/app/error.tsx"],"sourcesContent":["'use client';\n\ntype Props = {\n  error: Error;\n  reset: () => void;\n};\n\nconst Error = ({ error, reset }: Props) => {\n  return (\n    <div>\n      <h2>Помилка при завантаженні</h2>\n      <p>{error.message}</p>\n      <button onClick={reset}>Спробувати знову</button>\n    </div>\n  );\n};\n\nexport default Error;\n"],"names":[],"mappings":";;;;;AAAA;;AAOA,MAAM,QAAQ,CAAC,EAAE,KAAK,EAAE,KAAK,EAAS;IACpC,qBACE,mTAAC;;0BACC,mTAAC;0BAAG;;;;;;0BACJ,mTAAC;0BAAG,MAAM,OAAO;;;;;;0BACjB,mTAAC;gBAAO,SAAS;0BAAO;;;;;;;;;;;;AAG9B;uCAEe"}},
-    {"offset": {"line": 48, "column": 0}, "map": {"version":3,"sources":["file:///Users/anastasiia/Desktop/projects/react-0.2/06-notehub-nextjs/node_modules/next/src/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-ssr']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,yKACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0]}}]
-}
